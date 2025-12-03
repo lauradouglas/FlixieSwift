@@ -127,7 +127,8 @@ struct ProfileView: View {
         isLoading = true
         errorMessage = nil
         
-        // TODO: Replace with actual user ID from authentication
+        // TODO: Replace with actual user ID from authentication system
+        // This is a demo implementation - integrate with your auth flow
         let userId = "demo-user-id"
         
         do {

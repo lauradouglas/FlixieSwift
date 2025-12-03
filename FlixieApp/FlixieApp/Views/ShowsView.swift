@@ -136,7 +136,7 @@ struct ShowGridCard: View {
                             .font(.system(size: 40))
                             .foregroundColor(.white.opacity(0.8))
                         if let seasons = show.seasons {
-                            Text("\(seasons) Season\(seasons > 1 ? "s" : "")")
+                            Text("\(seasons) Season\(seasons != 1 ? "s" : "")")
                                 .font(.caption)
                                 .foregroundColor(.white.opacity(0.8))
                         }

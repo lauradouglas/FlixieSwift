@@ -10,7 +10,7 @@ extension Color {
     static let flixieDanger = Color(hex: "e57373")
     static let flixieLightText = Color(hex: "c1ccdf")
     static let flixieMediumText = Color(hex: "6c7a89")
-    static let flixieDarkText = Color(hex: "0f1c3391")
+    static let flixieDarkText = Color(hex: "0f1c33")
     static let flixieBackground = Color(hex: "172b4d")
     
     init(hex: String) {

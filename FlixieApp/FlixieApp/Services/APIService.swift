@@ -7,9 +7,8 @@ class APIService: ObservableObject {
     private let baseURL: String
     
     private init() {
-        // TODO: Replace with your actual backend URL
-        // For development, you might use: "http://localhost:3000/api"
-        // For production: "https://your-backend.com/api"
+        // Configure via FLIXIE_API_URL environment variable in Xcode scheme
+        // Default to localhost for local development
         self.baseURL = ProcessInfo.processInfo.environment["FLIXIE_API_URL"] ?? "http://localhost:3000/api"
     }
     
@@ -124,10 +123,10 @@ class APIService: ObservableObject {
         guard let url = URL(string: "\(baseURL)/groups") else {
             throw NetworkError.invalidURL
         }
-        let body: [String: Any] = [
-            "name": name,
-            "description": description ?? ""
-        ]
+        var body: [String: Any] = ["name": name]
+        if let description = description {
+            body["description"] = description
+        }
         let jsonData = try JSONSerialization.data(withJSONObject: body)
         let response: APIResponse<Group> = try await NetworkManager.shared.request(
             url: url,
